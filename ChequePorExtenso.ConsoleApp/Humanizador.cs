@@ -66,6 +66,10 @@ namespace ChequePorExtenso.ConsoleApp
             if (numero / 1000 > 0)
             {
                 palavras += $"{NumeroPorExtenso(numero / 1000)} mil ";
+
+                if ((numero % 1000) > 0)
+                    palavras += " e";
+
                 numero %= 1000;
             }
 
