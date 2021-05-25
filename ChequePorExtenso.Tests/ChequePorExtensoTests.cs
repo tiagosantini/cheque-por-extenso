@@ -14,39 +14,81 @@ namespace ChequePorExtenso.Tests
         }
 
         [TestMethod]
-        public void DeveExibirDezenaCentavo()
-        {
-            Assert.AreEqual("Dez centavos de real", Humanizador.EscreverPorExtenso(0.10m));
-        }
-
-        [TestMethod]
         public void DeveExibirUnidadeReal()
         {
-            Assert.AreEqual("Um real", Humanizador.EscreverPorExtenso(1.00m));
-        }
-
-        [TestMethod]
-        public void DeveExibirUnidadeRealPlural()
-        {
-            Assert.AreEqual("Dois reais", Humanizador.EscreverPorExtenso(2.00m));
+            Assert.AreEqual("Dois reais e vinte e cinco centavos",
+                Humanizador.EscreverPorExtenso(2.25m));
         }
 
         [TestMethod]
         public void DeveExibirDezenaReal()
         {
-            Assert.AreEqual("Vinte e cinco reais", Humanizador.EscreverPorExtenso(25.0m));
+            Assert.AreEqual("Trinta e sete reais",
+                Humanizador.EscreverPorExtenso(37.00m));
         }
 
         [TestMethod]
         public void DeveExibirCentenaReal()
         {
-            Assert.AreEqual("Cento e vinte e cinco reais e vinte centavos", Humanizador.EscreverPorExtenso(125.20m));
+            Assert.AreEqual("Seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(637.00m));
         }
 
         [TestMethod]
-        public void DeveExibirMilharReal()
+        public void DeveExibirUnidadeMilharReal()
         {
-            Assert.AreEqual("Vinte mil e quinhentos reais", Humanizador.EscreverPorExtenso(20500m));
+            Assert.AreEqual("Um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(1637.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirDezenaMilharReal()
+        {
+            Assert.AreEqual("Quinze mil quatrocentos e quinze reais e dezesseis centavos",
+                Humanizador.EscreverPorExtenso(15415.16m));
+        }
+
+        [TestMethod]
+        public void DeveExibirCentenaMilharReal()
+        {
+            Assert.AreEqual("Novecentos e sessenta e um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(961637.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirUnidadeMilhaoReal()
+        {
+            Assert.AreEqual("Um milhão oitocentos e cinquenta e dois mil e setecentos reais",
+                Humanizador.EscreverPorExtenso(1852600.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirUnidadeMilhaoRealPlural()
+        {
+            Assert.AreEqual("Cinco milhões novecentos e sessenta e um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(5961637.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirDezenaMilhaoReal()
+        {
+            Assert.AreEqual("Vinte e cinco milhões novecentos e sessenta e um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(25961637.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirCentenaMilhaoReal()
+        {
+            Assert.AreEqual("Quatrocentos e vinte e cinco milhões novecentos e sessenta e um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(425961637.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirUnidadeBilhaoReal()
+        {
+            Assert.AreEqual("Oito bilhões quatrocentos e vinte e cinco milhões novecentos" +
+                " e sessenta e um mil seiscentos e trinta e sete reais",
+                Humanizador.EscreverPorExtenso(8425961637.00m));
         }
     }
 }
