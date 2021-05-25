@@ -26,6 +26,12 @@ namespace ChequePorExtenso.Tests
         }
 
         [TestMethod]
+        public void DeveExibirUnidadeRealPlural()
+        {
+            Assert.AreEqual("Dois reais", Humanizador.EscreverPorExtenso(2.00m));
+        }
+
+        [TestMethod]
         public void DeveExibirDezenaReal()
         {
             Assert.AreEqual("Vinte e cinco reais", Humanizador.EscreverPorExtenso(25.0m));
@@ -40,7 +46,7 @@ namespace ChequePorExtenso.Tests
         [TestMethod]
         public void DeveExibirMilharReal()
         {
-            Assert.AreEqual("Dois mil e quinhentos reais", Humanizador.EscreverPorExtenso(2500m));
+            Assert.AreEqual("Vinte mil e quinhentos reais", Humanizador.EscreverPorExtenso(20500m));
         }
     }
 }
