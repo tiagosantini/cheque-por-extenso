@@ -15,7 +15,7 @@ namespace ChequePorExtenso.ConsoleApp
             if (numero == 1000000 || numero == 1000000000)
                 realOuReais = "de reais";
 
-            int antesDoPontoDecimal = (int)Math.Floor(numero);
+            long antesDoPontoDecimal = (long)Math.Floor(numero);
 
             string strAntesPontoDecimal = $"{NumeroPorExtenso(antesDoPontoDecimal)} {realOuReais}";
 
@@ -39,7 +39,7 @@ namespace ChequePorExtenso.ConsoleApp
             return EscreverPrimeiraLetraMaiuscula(resultado);
         }
 
-        private static string NumeroPorExtenso(int numero)
+        private static string NumeroPorExtenso(long numero)
         {
             if (numero == 0)
                 return "zero";
@@ -67,9 +67,6 @@ namespace ChequePorExtenso.ConsoleApp
             {
                 palavras += $"{NumeroPorExtenso(numero / 1000)} mil ";
 
-                if ((numero % 1000) > 0)
-                    palavras += "e";
-
                 numero %= 1000;
             }
 
@@ -84,7 +81,7 @@ namespace ChequePorExtenso.ConsoleApp
             return palavras;
         }
 
-        private static string CentenaPorExtenso(int numero, string palavras)
+        private static string CentenaPorExtenso(long numero, string palavras)
         {
             if (numero <= 0) return palavras;
             if (palavras != "")
@@ -99,7 +96,7 @@ namespace ChequePorExtenso.ConsoleApp
             return palavras;
         }
 
-        private static string DecimalPorExtenso(int numero, string palavras)
+        private static string DecimalPorExtenso(long numero, string palavras)
         {
             if (numero <= 0) return palavras;
             if (palavras != "")
