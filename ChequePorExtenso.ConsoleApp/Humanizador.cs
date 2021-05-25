@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace ChequePorExtenso.ConsoleApp
 {
-    public static class Humanizador
+    public class Humanizador
     {
         public static string EscreverPorExtenso(Decimal numero)
         {
@@ -63,12 +63,12 @@ namespace ChequePorExtenso.ConsoleApp
                 numero %= 1000000;
             }
 
-            if (numero / 1000 > 0)
+            if ((numero / 1000) > 0)
             {
                 palavras += $"{NumeroPorExtenso(numero / 1000)} mil ";
 
                 if ((numero % 1000) > 0)
-                    palavras += " e";
+                    palavras += "e";
 
                 numero %= 1000;
             }
