@@ -58,8 +58,8 @@ namespace ChequePorExtenso.Tests
         [TestMethod]
         public void DeveExibirUnidadeMilhaoReal()
         {
-            Assert.AreEqual("Um milhão oitocentos e cinquenta e dois mil e setecentos reais",
-                Humanizador.EscreverPorExtenso(1852600.00m));
+            Assert.AreEqual("Um milhão oitocentos e cinquenta e dois mil setecentos reais",
+                Humanizador.EscreverPorExtenso(1852700.00m));
         }
 
         [TestMethod]
