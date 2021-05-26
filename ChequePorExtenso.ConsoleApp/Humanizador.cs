@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace ChequePorExtenso.ConsoleApp
@@ -36,7 +35,9 @@ namespace ChequePorExtenso.ConsoleApp
 
             string resultado = $"{strAntesPontoDecimal}{strDepoisPontoDecimal}";
 
-            return EscreverPrimeiraLetraMaiuscula(resultado);
+            string resultadoFormatado = (resultado.Contains("mil ")) ? Formatar(resultado) : resultado;
+
+            return EscreverPrimeiraLetraMaiuscula(resultadoFormatado);
         }
 
         private static string NumeroPorExtenso(long numero)
@@ -66,7 +67,6 @@ namespace ChequePorExtenso.ConsoleApp
             if ((numero / 1000) > 0)
             {
                 palavras += $"{NumeroPorExtenso(numero / 1000)} mil ";
-
                 numero %= 1000;
             }
 
@@ -134,6 +134,17 @@ namespace ChequePorExtenso.ConsoleApp
                 return string.Empty;
             }
             return char.ToUpper(resultado[0]) + resultado.Substring(1);
+        }
+
+        private static string Formatar(string resultado)
+        {
+            string[] sort = resultado.Split(new String[] { "mil " }, 2, StringSplitOptions.None);
+
+            string resultadoFormatado = sort[1];
+
+            resultadoFormatado = Regex.Replace(resultadoFormatado, " {2,}", " ");
+
+            return resultadoFormatado;
         }
     }
 }
