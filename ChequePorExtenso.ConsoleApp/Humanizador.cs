@@ -36,7 +36,7 @@ namespace ChequePorExtenso.ConsoleApp
 
             string resultado = $"{strAntesPontoDecimal}{strDepoisPontoDecimal}";
 
-            string resultadoFormatado = (resultado.Contains("mil ")) ? Formatar(resultado) : resultado;
+            string resultadoFormatado = (resultado.Contains("mil ")) ? resultado.Formatar() : resultado;
 
             return resultadoFormatado.EscreverPrimeiraLetraMaiuscula();
         }
@@ -128,15 +128,5 @@ namespace ChequePorExtenso.ConsoleApp
             return numero % 1 == 0;
         }
 
-        private static string Formatar(string resultado)
-        {
-            string[] sort = resultado.Split(new String[] { "mil " }, 2, StringSplitOptions.None);
-
-            string resultadoFormatado = sort[1];
-
-            resultadoFormatado = Regex.Replace(resultadoFormatado, " {2,}", " ");
-
-            return resultadoFormatado;
-        }
     }
 }

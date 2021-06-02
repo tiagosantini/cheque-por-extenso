@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.Text.RegularExpressions;
+
 namespace ChequePorExtenso.ConsoleApp.Extensoes
 {
     public static class StringExtension
@@ -9,6 +11,17 @@ namespace ChequePorExtenso.ConsoleApp.Extensoes
                 return string.Empty;
 
             return char.ToUpper(resultado[0]) + resultado.Substring(1);
+        }
+
+        public static string Formatar(this string resultado)
+        {
+            string[] sort = resultado.Split(new String[] { "mil " }, 2, StringSplitOptions.None);
+
+            string resultadoFormatado = sort[1];
+
+            resultadoFormatado = Regex.Replace(resultadoFormatado, " {2,}", " ");
+
+            return resultadoFormatado;
         }
     }
 }
