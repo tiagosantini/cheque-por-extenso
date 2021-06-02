@@ -21,8 +21,6 @@ namespace ChequePorExtenso.ConsoleApp.Extensoes
 
             string resultadoFormatado = sort[1];
 
-            resultadoFormatado = Regex.Replace(resultadoFormatado, " {2,}", " ");
-
             return resultadoFormatado;
         }
     }

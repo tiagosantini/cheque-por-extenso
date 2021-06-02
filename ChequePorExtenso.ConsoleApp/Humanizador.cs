@@ -21,8 +21,8 @@ namespace ChequePorExtenso.ConsoleApp
 
             if (antesDoPontoDecimal == 0)
             {
-                strAntesPontoDecimal = "";
-                strComE = "";
+                strAntesPontoDecimal = string.Empty;
+                strComE = string.Empty;
             }
 
             string strDepoisPontoDecimal =
@@ -32,7 +32,7 @@ namespace ChequePorExtenso.ConsoleApp
                 strDepoisPontoDecimal += " de real";
 
             if (EhNumeroInteiro(numero))
-                strDepoisPontoDecimal = "";
+                strDepoisPontoDecimal = string.Empty;
 
             string resultado = $"{strAntesPontoDecimal}{strDepoisPontoDecimal}";
 
@@ -49,7 +49,7 @@ namespace ChequePorExtenso.ConsoleApp
             if (numero < 0)
                 return "menos " + NumeroPorExtenso(Math.Abs(numero));
 
-            string palavras = "";
+            string palavras = string.Empty;
 
             if (numero / 1000000000 > 0)
             {
@@ -85,7 +85,7 @@ namespace ChequePorExtenso.ConsoleApp
         private static string CentenaPorExtenso(long numero, string palavras)
         {
             if (numero <= 0) return palavras;
-            if (palavras != "")
+            if (PalavrasVazia(palavras))
                 palavras += " ";
 
             palavras += (centenas[numero / 100] == "cem" && (numero % 100) > 0) ? "cento" : centenas[numero / 100];
@@ -98,7 +98,7 @@ namespace ChequePorExtenso.ConsoleApp
         private static string DecimalPorExtenso(long numero, string palavras)
         {
             if (numero <= 0) return palavras;
-            if (palavras != "")
+            if (PalavrasVazia(palavras))
                 palavras += " ";
 
             if (numero < 20)
@@ -126,6 +126,11 @@ namespace ChequePorExtenso.ConsoleApp
         private static bool EhMilhaoOuBilhaoDeReais(decimal numero)
         {
             return numero % 1000000 == 0 || numero % 1000000000 == 0;
+        }
+
+        private static bool PalavrasVazia(string palavras)
+        {
+            return palavras != string.Empty;
         }
     }
 }
