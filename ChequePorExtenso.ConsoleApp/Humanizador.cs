@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using ChequePorExtenso.ConsoleApp.Extensoes;
 
 namespace ChequePorExtenso.ConsoleApp
 {
@@ -37,7 +38,7 @@ namespace ChequePorExtenso.ConsoleApp
 
             string resultadoFormatado = (resultado.Contains("mil ")) ? Formatar(resultado) : resultado;
 
-            return EscreverPrimeiraLetraMaiuscula(resultadoFormatado);
+            return StringExtension.EscreverPrimeiraLetraMaiuscula(resultadoFormatado);
         }
 
         private static string NumeroPorExtenso(long numero)
@@ -125,15 +126,6 @@ namespace ChequePorExtenso.ConsoleApp
         private static bool EhNumeroInteiro(decimal numero)
         {
             return numero % 1 == 0;
-        }
-
-        private static string EscreverPrimeiraLetraMaiuscula(string resultado)
-        {
-            if (string.IsNullOrEmpty(resultado))
-            {
-                return string.Empty;
-            }
-            return char.ToUpper(resultado[0]) + resultado.Substring(1);
         }
 
         private static string Formatar(string resultado)

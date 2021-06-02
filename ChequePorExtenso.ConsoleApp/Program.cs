@@ -25,7 +25,6 @@ namespace ChequePorExtenso.ConsoleApp
 
             } while (string.IsNullOrEmpty(strInput));
 
-
             try
             {
                 EscreverPorExtenso(strInput, out resultado);
