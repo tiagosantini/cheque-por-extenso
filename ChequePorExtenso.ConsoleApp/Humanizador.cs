@@ -12,7 +12,7 @@ namespace ChequePorExtenso.ConsoleApp
 
             string realOuReais = (numero == 1) ? "real" : "reais";
 
-            if (numero == 1000000 || numero == 1000000000)
+            if (numero % 1000000 == 0 || numero % 1000000000 == 0)
                 realOuReais = "de reais";
 
             long antesDoPontoDecimal = (long)Math.Floor(numero);

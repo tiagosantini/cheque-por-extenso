@@ -10,6 +10,8 @@ namespace ChequePorExtenso.ConsoleApp.Extensoes
             if (string.IsNullOrEmpty(resultado))
                 return string.Empty;
 
+            resultado = Regex.Replace(resultado, " {2,}", " ");
+
             return char.ToUpper(resultado[0]) + resultado.Substring(1);
         }
 

@@ -90,5 +90,19 @@ namespace ChequePorExtenso.Tests
                 " e sessenta e um mil seiscentos e trinta e sete reais",
                 Humanizador.EscreverPorExtenso(8425961637.00m));
         }
+
+        [TestMethod]
+        public void DeveExibirSufixoMilhaoDeReais()
+        {
+            Assert.AreEqual("Um milhão de reais",
+                Humanizador.EscreverPorExtenso(1000000.00m));
+        }
+
+        [TestMethod]
+        public void DeveExibirSufixoBilhaoDeReais()
+        {
+            Assert.AreEqual("Um bilhão de reais",
+                Humanizador.EscreverPorExtenso(1000000000.00m));
+        }
     }
 }
