@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColecaoNumeros.cs" />
     <Compile Include="Extensoes\StringExtension.cs" />
     <Compile Include="Humanizador.cs" />
     <Compile Include="Program.cs" />

@@ -4,7 +4,7 @@ using ChequePorExtenso.ConsoleApp.Extensoes;
 
 namespace ChequePorExtenso.ConsoleApp
 {
-    public class Humanizador
+    public class Humanizador : ColecaoNumeros
     {
         public static string EscreverPorExtenso(Decimal numero)
         {
@@ -12,7 +12,7 @@ namespace ChequePorExtenso.ConsoleApp
 
             string realOuReais = (numero == 1) ? "real" : "reais";
 
-            if (numero % 1000000 == 0 || numero % 1000000000 == 0)
+            if (EhMilhaoOuBilhaoDeReais(numero))
                 realOuReais = "de reais";
 
             long antesDoPontoDecimal = (long)Math.Floor(numero);
@@ -88,8 +88,6 @@ namespace ChequePorExtenso.ConsoleApp
             if (palavras != "")
                 palavras += " ";
 
-            string[] centenas = new[] { "zero", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos" };
-
             palavras += (centenas[numero / 100] == "cem" && (numero % 100) > 0) ? "cento" : centenas[numero / 100];
             if ((numero % 100) > 0)
                 palavras += " e";
@@ -102,9 +100,6 @@ namespace ChequePorExtenso.ConsoleApp
             if (numero <= 0) return palavras;
             if (palavras != "")
                 palavras += " ";
-
-            string[] unidades = new[] { "zero", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove" };
-            string[] dezenas = new[] { "zero", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa" };
 
             if (numero < 20)
                 palavras += unidades[numero];
@@ -128,5 +123,9 @@ namespace ChequePorExtenso.ConsoleApp
             return numero % 1 == 0;
         }
 
+        private static bool EhMilhaoOuBilhaoDeReais(decimal numero)
+        {
+            return numero % 1000000 == 0 || numero % 1000000000 == 0;
+        }
     }
 }
