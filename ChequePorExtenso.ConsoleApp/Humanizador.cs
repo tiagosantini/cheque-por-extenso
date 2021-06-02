@@ -84,11 +84,13 @@ namespace ChequePorExtenso.ConsoleApp
 
         private static string CentenaPorExtenso(long numero, string palavras)
         {
-            if (numero <= 0) return palavras;
+            if (NumeroMenorIgualAZero(numero)) return palavras;
+
             if (PalavrasVazia(palavras))
                 palavras += " ";
 
             palavras += (centenas[numero / 100] == "cem" && (numero % 100) > 0) ? "cento" : centenas[numero / 100];
+
             if ((numero % 100) > 0)
                 palavras += " e";
 
@@ -97,7 +99,8 @@ namespace ChequePorExtenso.ConsoleApp
 
         private static string DecimalPorExtenso(long numero, string palavras)
         {
-            if (numero <= 0) return palavras;
+            if (NumeroMenorIgualAZero(numero)) return palavras;
+
             if (PalavrasVazia(palavras))
                 palavras += " ";
 
@@ -106,6 +109,7 @@ namespace ChequePorExtenso.ConsoleApp
             else
             {
                 palavras += dezenas[numero / 10];
+
                 if ((numero % 10) > 0)
                     palavras += " e " + unidades[numero % 10];
             }
@@ -132,5 +136,11 @@ namespace ChequePorExtenso.ConsoleApp
         {
             return palavras != string.Empty;
         }
+
+        private static bool NumeroMenorIgualAZero(long numero)
+        {
+            return numero <= 0;
+        }
+
     }
 }
