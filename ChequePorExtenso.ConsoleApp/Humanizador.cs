@@ -38,7 +38,7 @@ namespace ChequePorExtenso.ConsoleApp
 
             string resultadoFormatado = (resultado.Contains("mil ")) ? Formatar(resultado) : resultado;
 
-            return StringExtension.EscreverPrimeiraLetraMaiuscula(resultadoFormatado);
+            return resultadoFormatado.EscreverPrimeiraLetraMaiuscula();
         }
 
         private static string NumeroPorExtenso(long numero)

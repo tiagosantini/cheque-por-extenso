@@ -3,12 +3,11 @@ namespace ChequePorExtenso.ConsoleApp.Extensoes
 {
     public static class StringExtension
     {
-        public static string EscreverPrimeiraLetraMaiuscula(string resultado)
+        public static string EscreverPrimeiraLetraMaiuscula(this string resultado)
         {
             if (string.IsNullOrEmpty(resultado))
-            {
                 return string.Empty;
-            }
+
             return char.ToUpper(resultado[0]) + resultado.Substring(1);
         }
     }
